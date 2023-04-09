@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Repository;
+namespace Harryn\Jacobn\AutomationBundle\Repository;
 
 /**
  * WorkflowEventsRepository

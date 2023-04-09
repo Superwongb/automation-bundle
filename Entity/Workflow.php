@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Entity;
+namespace Harryn\Jacobn\AutomationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Workflow
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\AutomationBundle\Repository\WorkflowRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\AutomationBundle\Repository\WorkflowRepository")
  * @ORM\Table(name="uv_workflow")
  */
 class Workflow
@@ -77,7 +77,7 @@ class Workflow
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @ORM\OneToMany(targetEntity="Webkul\UVDesk\AutomationBundle\Entity\WorkflowEvents", mappedBy="workflow")
+     * @ORM\OneToMany(targetEntity="Harryn\Jacobn\AutomationBundle\Entity\WorkflowEvents", mappedBy="workflow")
      * 
      */
     private $workflowEvents;
@@ -319,11 +319,11 @@ class Workflow
     /**
      * Add workflowEvent
      *
-     * @param \Webkul\UVDesk\AutomationBundle\Entity\WorkflowEvents $workflowEvent
+     * @param \Harryn\Jacobn\AutomationBundle\Entity\WorkflowEvents $workflowEvent
      *
      * @return Workflow
      */
-    public function addWorkflowEvent(\Webkul\UVDesk\AutomationBundle\Entity\WorkflowEvents $workflowEvent)
+    public function addWorkflowEvent(\Harryn\Jacobn\AutomationBundle\Entity\WorkflowEvents $workflowEvent)
     {
         $this->workflowEvents[] = $workflowEvent;
 
@@ -333,9 +333,9 @@ class Workflow
     /**
      * Remove workflowEvent
      *
-     * @param \Webkul\UVDesk\AutomationBundle\Entity\WorkflowEvents $workflowEvent
+     * @param \Harryn\Jacobn\AutomationBundle\Entity\WorkflowEvents $workflowEvent
      */
-    public function removeWorkflowEvent(\Webkul\UVDesk\AutomationBundle\Entity\WorkflowEvents $workflowEvent)
+    public function removeWorkflowEvent(\Harryn\Jacobn\AutomationBundle\Entity\WorkflowEvents $workflowEvent)
     {
         $this->workflowEvents->removeElement($workflowEvent);
     }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Package;
+namespace Harryn\Jacobn\AutomationBundle\Package;
 
-use Webkul\UVDesk\PackageManager\Composer\ComposerPackage;
-use Webkul\UVDesk\PackageManager\Composer\ComposerPackageExtension;
+use Harryn\Jacobn\PackageManager\Composer\ComposerPackage;
+use Harryn\Jacobn\PackageManager\Composer\ComposerPackageExtension;
 
 class Composer extends ComposerPackageExtension
 {

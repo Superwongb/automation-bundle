@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\PreparedResponse;
+namespace Harryn\Jacobn\AutomationBundle\PreparedResponse;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

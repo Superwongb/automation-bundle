@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Repository;
+namespace Harryn\Jacobn\AutomationBundle\Repository;
 
 use Doctrine\Common\Collections\Criteria;
-use Webkul\UVDesk\AutomationBundle\Entity\Workflow;
+use Harryn\Jacobn\AutomationBundle\Entity\Workflow;
 
 /**
  * WorkflowRepository

@@ -1,10 +1,10 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\DependencyInjection\Compilers;
+namespace Harryn\Jacobn\AutomationBundle\DependencyInjection\Compilers;
 
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Webkul\UVDesk\AutomationBundle\EventListener\PreparedResponseListener;
+use Harryn\Jacobn\AutomationBundle\EventListener\PreparedResponseListener;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class PreparedResponsePass implements CompilerPassInterface
@@ -17,7 +17,7 @@ class PreparedResponsePass implements CompilerPassInterface
         $preparedResponseDefinition = $container->findDefinition(PreparedResponseListener::class);
         
         // Register Prepared Response Actions
-        $preparedResponseTaggedServices = $container->findTaggedServiceIds('uvdesk.automations.prepared_response.actions');
+        $preparedResponseTaggedServices = $container->findTaggedServiceIds('jacobn.automations.prepared_response.actions');
         
         foreach ($preparedResponseTaggedServices as $serviceId => $serviceTags) {
             $preparedResponseDefinition->addMethodCall('registerPreparedResponseAction', array(new Reference($serviceId)));

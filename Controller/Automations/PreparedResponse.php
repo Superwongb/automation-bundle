@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Controller\Automations;
+namespace Harryn\Jacobn\AutomationBundle\Controller\Automations;
 
 use Doctrine\Common\Collections\Criteria;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,11 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\Entity;
-use Webkul\UVDesk\AutomationBundle\Form\DefaultForm;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\AutomationBundle\Entity;
+use Harryn\Jacobn\AutomationBundle\Form\DefaultForm;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 
 class PreparedResponse extends AbstractController
 {
@@ -63,7 +63,7 @@ class PreparedResponse extends AbstractController
         // Validate Form Submission
         if ($form->isSubmitted()) {
             $formData = $request->request;
-            $workflowClass = 'Webkul\UVDesk\AutomationBundle\Entity\PreparedResponses';
+            $workflowClass = 'Harryn\Jacobn\AutomationBundle\Entity\PreparedResponses';
             $workflowActionsArray = $request->request->get('actions');
 
             if (!trim($formData->get('name')) || (strlen($formData->get('name')) > self::NAME_LENGTH)) {
@@ -229,7 +229,7 @@ class PreparedResponse extends AbstractController
         // Validate Form Submission
         if ($form->isSubmitted()) {
             $formData = $request->request;
-            $workflowClass = 'Webkul\UVDesk\AutomationBundle\Entity\PreparedResponses';
+            $workflowClass = 'Harryn\Jacobn\AutomationBundle\Entity\PreparedResponses';
             $workflowActionsArray = $request->request->get('actions');
 
             if (!trim($formData->get('name')) || (strlen($formData->get('name')) > self::NAME_LENGTH)) {

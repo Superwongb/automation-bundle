@@ -1,14 +1,14 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\EventListener;
+namespace Harryn\Jacobn\AutomationBundle\EventListener;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\AutomationBundle\Entity\Workflow;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\AutomationBundle\Entity\Workflow;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\Workflow\Event as WorkflowEvent;
-use Webkul\UVDesk\AutomationBundle\Workflow\Action as WorkflowAction;
+use Harryn\Jacobn\AutomationBundle\Workflow\Event as WorkflowEvent;
+use Harryn\Jacobn\AutomationBundle\Workflow\Action as WorkflowAction;
 
 class WorkflowListener
 {
@@ -38,17 +38,17 @@ class WorkflowListener
         foreach ($this->registeredWorkflowEvents as $workflowDefinition) {
             if ($workflowDefinition->getId() == $eventId) {
                 /*
-                    @NOTICE: Events 'uvdesk.agent.forgot_password', 'uvdesk.customer.forgot_password' will be deprecated 
-                    onwards uvdesk/automation-bundle:1.0.2 and uvdesk/core-framework:1.0.3 releases and will be 
+                    @NOTICE: Events 'jacobn.agent.forgot_password', 'jacobn.customer.forgot_password' will be deprecated 
+                    onwards jacobn/automation-bundle:1.0.2 and jacobn/core-framework:1.0.3 releases and will be 
                     completely removed with the next major release.
 
-                    Both the events have been mapped to return the 'uvdesk.user.forgot_password' id, so we need to 
+                    Both the events have been mapped to return the 'jacobn.user.forgot_password' id, so we need to 
                     return the correct definition.
                 */
-                if ('uvdesk.user.forgot_password' == $eventId) {
+                if ('jacobn.user.forgot_password' == $eventId) {
                     if (
-                        $workflowDefinition instanceof \Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\Agent\ForgotPassword 
-                        || $workflowDefinition instanceof \Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\Customer\ForgotPassword
+                        $workflowDefinition instanceof \Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\Agent\ForgotPassword 
+                        || $workflowDefinition instanceof \Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\Customer\ForgotPassword
                     ) {
                         continue;
                     }
@@ -76,31 +76,31 @@ class WorkflowListener
         $workflowCollection = $this->entityManager->getRepository(Workflow::class)->getEventWorkflows($event->getSubject());
 
         /*
-            @NOTICE: Events 'uvdesk.agent.forgot_password', 'uvdesk.customer.forgot_password' will be deprecated 
-            onwards uvdesk/automation-bundle:1.0.2 and uvdesk/core-framework:1.0.3 releases and will be 
+            @NOTICE: Events 'jacobn.agent.forgot_password', 'jacobn.customer.forgot_password' will be deprecated 
+            onwards jacobn/automation-bundle:1.0.2 and jacobn/core-framework:1.0.3 releases and will be 
             completely removed with the next major release.
 
-            From uvdesk/core-framework:1.0.3 onwards, instead of the above mentioned events, the one being 
-            triggered will be 'uvdesk.user.forgot_password'. Since there still might be older workflows 
+            From jacobn/core-framework:1.0.3 onwards, instead of the above mentioned events, the one being 
+            triggered will be 'jacobn.user.forgot_password'. Since there still might be older workflows 
             configured to work on either of the two deprecated events, we will need to make an educated guess 
             which one to use (if any) if there's none found for the actual event.
         */
-        if (empty($workflowCollection) && 'uvdesk.user.forgot_password' == $event->getSubject()) {
+        if (empty($workflowCollection) && 'jacobn.user.forgot_password' == $event->getSubject()) {
             $user = $event->getArgument('entity');
 
-            if (!empty($user) && $user instanceof \Webkul\UVDesk\CoreFrameworkBundle\Entity\User) {
-                $agentForgotPasswordWorkflows = $this->entityManager->getRepository(Workflow::class)->getEventWorkflows('uvdesk.agent.forgot_password');
-                $customerForgotPasswordWorkflows = $this->entityManager->getRepository(Workflow::class)->getEventWorkflows('uvdesk.customer.forgot_password');
+            if (!empty($user) && $user instanceof \Harryn\Jacobn\CoreFrameworkBundle\Entity\User) {
+                $agentForgotPasswordWorkflows = $this->entityManager->getRepository(Workflow::class)->getEventWorkflows('jacobn.agent.forgot_password');
+                $customerForgotPasswordWorkflows = $this->entityManager->getRepository(Workflow::class)->getEventWorkflows('jacobn.customer.forgot_password');
 
                 if (!empty($agentForgotPasswordWorkflows) || !empty($customerForgotPasswordWorkflows)) {
                     $agentInstance = $user->getAgentInstance();
                     $customerInstance = $user->getCustomerInstance();
 
                     if (!empty($customerForgotPasswordWorkflows) && !empty($customerInstance)) {
-                        // Resort to uvdesk.customer.forgot_password workflows
+                        // Resort to jacobn.customer.forgot_password workflows
                         $workflowCollection = $customerForgotPasswordWorkflows;
                     } else if (!empty($agentForgotPasswordWorkflows) && !empty($agentInstance)) {
-                        // Resort to uvdesk.agent.forgot_password workflows
+                        // Resort to jacobn.agent.forgot_password workflows
                         $workflowCollection = $agentForgotPasswordWorkflows;
                     }
                 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Services;
+namespace Harryn\Jacobn\AutomationBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -38,7 +38,7 @@ class AutomationService
     {
         $ticketEventCollection = [];
 
-        foreach ($this->container->get('uvdesk.automations.workflows')->getRegisteredWorkflowEvents() as $workflowDefinition) {
+        foreach ($this->container->get('jacobn.automations.workflows')->getRegisteredWorkflowEvents() as $workflowDefinition) {
             $functionalGroup = $workflowDefinition->getFunctionalGroup();
 
             if (!isset($ticketEventCollection[$functionalGroup])) {
@@ -283,7 +283,7 @@ class AutomationService
         $workflowActions = [];
         
         // @TODO: Add minimum required access levels to workflow actions to restrict usage
-        foreach ($this->container->get('uvdesk.automations.workflows')->getRegisteredWorkflowActions() as $workflowDefinition) {
+        foreach ($this->container->get('jacobn.automations.workflows')->getRegisteredWorkflowActions() as $workflowDefinition) {
             $functionalGroup = $workflowDefinition->getFunctionalGroup();
 
             if (!isset($workflowActions[$functionalGroup])) {
@@ -301,7 +301,7 @@ class AutomationService
         $preparedResponseActions = [];
 
         // @TODO: Add minimum required access levels to prepared response actions to restrict usage
-        foreach ($this->container->get('uvdesk.automations.prepared_responses')->getRegisteredPreparedResponseActions() as $preparedResponseDefinition) {
+        foreach ($this->container->get('jacobn.automations.prepared_responses')->getRegisteredPreparedResponseActions() as $preparedResponseDefinition) {
             $functionalGroup = $preparedResponseDefinition->getFunctionalGroup();
 
             if (!isset($preparedResponseActions[$functionalGroup])) {

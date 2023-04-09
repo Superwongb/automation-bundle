@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle;
+namespace Harryn\Jacobn\AutomationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
-use Webkul\UVDesk\AutomationBundle\DependencyInjection\UVDeskExtension;
-use Webkul\UVDesk\AutomationBundle\DependencyInjection\Compilers as UVDeskAutomationCompilers;
+use Harryn\Jacobn\AutomationBundle\DependencyInjection\UVDeskExtension;
+use Harryn\Jacobn\AutomationBundle\DependencyInjection\Compilers as UVDeskAutomationCompilers;
 
 class UVDeskAutomationBundle extends Bundle
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Controller\Automations;
+namespace Harryn\Jacobn\AutomationBundle\Controller\Automations;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\AutomationBundle\Form\DefaultForm;
-use Webkul\UVDesk\AutomationBundle\Entity;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\AutomationBundle\EventListener\WorkflowListener;
+use Harryn\Jacobn\AutomationBundle\Form\DefaultForm;
+use Harryn\Jacobn\AutomationBundle\Entity;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\AutomationBundle\EventListener\WorkflowListener;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class Workflow extends AbstractController
@@ -62,7 +62,7 @@ class Workflow extends AbstractController
 
         if ($form->isSubmitted()) {
             $formData = $request->request;
-            $workflowClass = 'Webkul\UVDesk\AutomationBundle\Entity\Workflow';
+            $workflowClass = 'Harryn\Jacobn\AutomationBundle\Entity\Workflow';
             $workflowActionsArray = $request->request->get('actions');
 
             if (strlen($formData->get('description')) > self::DESCRIPTION_LENGTH) {
@@ -228,7 +228,7 @@ class Workflow extends AbstractController
         if ($form->isSubmitted()) {
             $formData = $request->request;
             
-            $workflowClass = 'Webkul\UVDesk\AutomationBundle\Entity\Workflow';
+            $workflowClass = 'Harryn\Jacobn\AutomationBundle\Entity\Workflow';
             $workflowActionsArray = $request->request->get('actions');
 
             if (strlen($formData->get('description')) > self::DESCRIPTION_LENGTH) {
@@ -265,14 +265,14 @@ class Workflow extends AbstractController
             }
 
             /*
-                @NOTICE: Events 'uvdesk.agent.forgot_password', 'uvdesk.customer.forgot_password' will be deprecated 
-                onwards uvdesk/automation-bundle:1.0.2 and uvdesk/core-framework:1.0.3 releases and will be 
+                @NOTICE: Events 'jacobn.agent.forgot_password', 'jacobn.customer.forgot_password' will be deprecated 
+                onwards jacobn/automation-bundle:1.0.2 and jacobn/core-framework:1.0.3 releases and will be 
                 completely removed with the next major release.
             */
             foreach ($workflowEventsArray as $eventAttributes) {
-                if ($eventAttributes['event'] == 'agent' && $eventAttributes['trigger'] == 'uvdesk.user.forgot_password') {
+                if ($eventAttributes['event'] == 'agent' && $eventAttributes['trigger'] == 'jacobn.user.forgot_password') {
                     $error['events'][] = $this->translate('"Agent Forgot Password" has been deprecated. Please use the "User Forgot Password" event instead.');
-                } else if ($eventAttributes['event'] == 'customer' && $eventAttributes['trigger'] == 'uvdesk.user.forgot_password') {
+                } else if ($eventAttributes['event'] == 'customer' && $eventAttributes['trigger'] == 'jacobn.user.forgot_password') {
                     $error['events'][] = $this->translate('"Customer Forgot Password" has been deprecated. Please use the "User Forgot Password" event instead.');
                 }
             }
