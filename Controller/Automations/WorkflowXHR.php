@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Controller\Automations;
+namespace Harryn\Jacobn\AutomationBundle\Controller\Automations;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\AutomationBundle\Entity;
-use Webkul\UVDesk\AutomationBundle\EventListener\WorkflowListener;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\TicketService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\AutomationBundle\Entity;
+use Harryn\Jacobn\AutomationBundle\EventListener\WorkflowListener;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\TicketService;
 
 class WorkflowXHR extends AbstractController
 {
@@ -174,7 +174,7 @@ class WorkflowXHR extends AbstractController
                         'id' => $item->getId(),
                         'name' => $item->getCode(),
                     ];
-                }, $this->getDoctrine()->getRepository("Webkul\\UVDesk\\CoreFrameworkBundle\\Entity\\" . ucfirst($entity))->findAll()));
+                }, $this->getDoctrine()->getRepository("Harryn\\Jacobn\\CoreFrameworkBundle\\" . ucfirst($entity))->findAll()));
 
                 break;
             default:

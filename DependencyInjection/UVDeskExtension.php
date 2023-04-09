@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\DependencyInjection;
+namespace Harryn\Jacobn\AutomationBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Workflow;
+namespace Harryn\Jacobn\AutomationBundle\Workflow;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

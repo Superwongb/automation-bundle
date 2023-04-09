@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Entity;
+namespace Harryn\Jacobn\AutomationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * WorkflowEvents
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\AutpmationBundle\Repository\WorkflowEventsRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\AutpmationBundle\Repository\WorkflowEventsRepository")
  * @ORM\Table(name="uv_workflow_events")
  */
 class WorkflowEvents
@@ -33,8 +33,8 @@ class WorkflowEvents
     private $event;
 
     /**
-     * @var \Webkul\UVDesk\AutomationBundle\Entity\Workflow
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\AutomationBundle\Entity\Workflow", inversedBy="WorkflowEvents")
+     * @var \Harryn\Jacobn\AutomationBundle\Entity\Workflow
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\AutomationBundle\Entity\Workflow", inversedBy="WorkflowEvents")
      * @ORM\JoinColumn(name="workflow_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $workflow;
@@ -101,11 +101,11 @@ class WorkflowEvents
     /**
      * Set workflow
      *
-     * @param \Webkul\UVDesk\AutomationBundle\Entity\Workflow $workflow
+     * @param \Harryn\Jacobn\AutomationBundle\Entity\Workflow $workflow
      *
      * @return WorkflowEvents
      */
-    public function setWorkflow(\Webkul\UVDesk\AutomationBundle\Entity\Workflow $workflow = null)
+    public function setWorkflow(\Harryn\Jacobn\AutomationBundle\Entity\Workflow $workflow = null)
     {
         $this->workflow = $workflow;
 
@@ -115,7 +115,7 @@ class WorkflowEvents
     /**
      * Get workflow
      *
-     * @return \Webkul\UVDesk\AutomationBundle\Entity\Workflow
+     * @return \Harryn\Jacobn\AutomationBundle\Entity\Workflow
      */
     public function getWorkflow()
     {

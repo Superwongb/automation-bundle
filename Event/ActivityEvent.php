@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Event;
+namespace Harryn\Jacobn\AutomationBundle\Event;
 
 use Symfony\Contracts\EventDispatcher\Event;
 

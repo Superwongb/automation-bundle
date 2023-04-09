@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\UIComponents\Ticket\QuickActionButtons;
+namespace Harryn\Jacobn\AutomationBundle\UIComponents\Ticket\QuickActionButtons;
 
 use Twig\Environment as TwigEnvironment;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\DashboardTemplate;
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\QuickActionButtonInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\DashboardTemplate;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\QuickActionButtonInterface;
 
 class PreparedResponses implements QuickActionButtonInterface
 {

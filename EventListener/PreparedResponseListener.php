@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\EventListener;
+namespace Harryn\Jacobn\AutomationBundle\EventListener;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\AutomationBundle\Entity\PreparedResponses;
+use Harryn\Jacobn\AutomationBundle\Entity\PreparedResponses;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
 
 class PreparedResponseListener
 {

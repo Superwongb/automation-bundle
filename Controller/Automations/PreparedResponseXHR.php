@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\AutomationBundle\Controller\Automations;
+namespace Harryn\Jacobn\AutomationBundle\Controller\Automations;
 
 use Doctrine\Common\Collections\Criteria;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Webkul\UVDesk\AutomationBundle\Form;
-use Webkul\UVDesk\AutomationBundle\Entity;
+use Harryn\Jacobn\AutomationBundle\Form;
+use Harryn\Jacobn\AutomationBundle\Entity;
 use Symfony\Component\Security\Core\SecurityContextInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\AutomationBundle\EventListener\PreparedResponseListener;
+use Harryn\Jacobn\AutomationBundle\EventListener\PreparedResponseListener;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class PreparedResponseXHR extends AbstractController

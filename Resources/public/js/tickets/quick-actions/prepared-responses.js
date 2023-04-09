@@ -18,7 +18,7 @@ $(function () {
     });
 
     new PreparedResponsesComponent({
-        model: uvdesk.ticket.model
+        model: jacobn.ticket.model
     });
 
 });
