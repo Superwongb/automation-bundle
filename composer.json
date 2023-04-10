@@ -23,7 +23,6 @@
     "minimum-stability": "stable",
     "config": {
         "allow-plugins": {
-            "jacobn/composer-plugin": true,
             "jacobn/composer-plugin": true
         }
     }
